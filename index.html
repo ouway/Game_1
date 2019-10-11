@@ -8,7 +8,20 @@
 </head>
 <body>
     <script>
-            
+        // -- Провека символа на ввод
+        do {
+            var word = prompt("Введите слово:");
+            var rezult=/^[а-яА-ЯёЁ]+$/.test(word);
+            if (rezult == false) {
+                alert("Пожалуйста, введите только русские буквы без пробелов и знаков препинаний!");
+            }
+            if (rezult == true) {
+                alert("Слово принято! Игра продолжается");
+                break;
+            }
+        }
+        while (true);
+        // -- Провека символа на ввод
     </script>
 </body>
 </html>

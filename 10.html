@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script>
+        var words = [
+            "Программа",
+            "Обезьяная",
+            "Руль",
+            "Оладушек"
+        ]; // Все слова
+
+        var word = words[Math.floor(Math.random() * words.length)]; // Случайное слово
+
+        var answerArray = []; //Массив с ответом
+        for (var i = 0; i < word.length; i++) {
+            answerArray[i] = "_";
+        }
+        var remainingLetters = word.length; // Сколько букв осталось угадать
+
+        while (remainingLetters > 0) { // Игра идет
+            alert(answerArray.join(" "));
+            var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры"); //
+            if (guess === null) { // Если нажали "Отмена"
+                break; // Выйти из цикла
+            } else if (guess.length !== 1) {
+                alert("Пожалуйста, введите одну букву");
+            } else {
+                for (var j = 0; j < word.length; j++) {
+                    if(word[j] === guess) { // Равен ли текущий символ тому, который мы предположили
+                        answerArray[j] = guess; // Записать ответ под нужным индексом
+                        remainingLetters--; // Уменьшить кол-во оставшихся букв
+                    }
+                }
+            }
+        }
+        alert(answerArray.join(" "));
+        alert("Отлично! Было загадано слово" + word);
+    </script>
+</body>
+</html>
