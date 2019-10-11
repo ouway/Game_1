@@ -12,10 +12,10 @@
         do {
             var word = prompt("Введите слово:");
             var rezult=/^[а-яА-ЯёЁ]+$/.test(word);
-            if (rezult == false) {
+            if (!rezult) {
                 alert("Пожалуйста, введите только русские буквы без пробелов и знаков препинаний!");
             }
-            if (rezult == true) {
+            if (rezult) {
                 alert("Слово принято! Игра продолжается");
                 break;
             }
